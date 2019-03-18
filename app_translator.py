@@ -10,41 +10,41 @@ print('starting translation')
 #only value is translated
 
 
-pathArquivoATraduzir = '/home/murah/Documentos/myOutFile2.txt'
-with open(pathArquivoATraduzir, 'r') as fileTrad:
-    arquivoTraduzido = {}
-    contador = 0
+pathFileToTranslate = '/home/murah/Documentos/myOutFile2.txt'
+with open(pathFileToTranslate, 'r') as fileTrad:
+    translatedFile = {}
+    counter = 0
     for line in fileTrad.readlines():
-            texto = line.split('=')
-            key = texto[0]
+            text = line.split('=')
+            key = text[0]
             try:    
-                if len(texto) > 1:
-                    label = texto[1]
+                if len(text) > 1:
+                    label = text[1]
                     #translate the label
                     #dest - destination language
                     #src - language on the file
                     translated = translator.translate(label, dest='la', src='pt')
                     #put the translated value in a map
-                    arquivoTraduzido[key] = translated.text
+                    translatedFile[key] = translated.text
                 else:
                     #in case of empty value, insert empt string ''
-                    arquivoTraduzido[key] = ''
+                    translatedFile[key] = ''
 
-                contador = contador + 1
-                print(str(contador) + ' - translated')
+                counter = counter + 1
+                print(str(counter) + ' - translated')
             except Exception as e:
                 #in case of error, increment the counter and insert the key with empty value
-                arquivoTraduzido[key] = ''
-                contador = contador + 1
-                print('error' + str(contador) + '|' + str(e))
+                translatedFile[key] = ''
+                counter = counter + 1
+                print('error' + str(counter) + '|' + str(e))
             
     print('End of translation')
 
 print('Starting file writing')
-#gera um arquivo à partir do map de dados traduzidos
-pathArquivoTraduzido = pathArquivoATraduzir + '_translated.txt'
-with open(pathArquivoTraduzido, "w") as outF:
-    for item in arquivoTraduzido.items():
+#creates a file from the map values
+pathtranslatedFile = pathFileToTranslate + '_translated.txt'
+with open(pathtranslatedFile, "w") as outF:
+    for item in translatedFile.items():
         outF.write(item[0]+ '=' + item[1])
         outF.write("\n")
     print('end of writing')
