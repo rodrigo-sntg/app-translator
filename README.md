@@ -8,8 +8,8 @@ To do so:
 
 The languages accepeted are shown bellow:
 
-``` LANGUAGES = {
-    'af': 'afrikaans',  
+```
+    {'af': 'afrikaans',  
     'sq': 'albanian',  
     'am': 'amharic',  
     'ar': 'arabic',  
