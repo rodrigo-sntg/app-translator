@@ -1,5 +1,6 @@
 ## TRASLATOR PYTHON
-This api uses google translator
+
+Googletrans documentation - https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages
 
 To use it, it'll be necessary to install googletranslator in repository.
 To do so:
